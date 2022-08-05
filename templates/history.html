@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <header>
+        <h1>History</h1>
+    </header>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-start" scope="col">Symbol</th>
+                <th class="text-end" scope="col">Qty</th>
+                <th class="text-end" scope="col">Price</th>
+                <th class="text-end" scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in shares %}
+                <tr>
+                    <td class="text-start">{{ row.symbol }}</td>
+                    <td class="text-end">{{ row.qty }}</td>
+                    <td class="text-end">{{ row.price | usd }}</td>
+                    <td class="text-end">{{ row.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
